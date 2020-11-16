@@ -1,20 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //imported styles
 
 @import './styleguide';
@@ -22,7 +6,9 @@
 
 //styling
 
-
+body{
+    background-color: black;
+}
 
 
 .grid-container {
@@ -354,8 +340,8 @@
 
             .search-btn {
                 position: absolute;
-                height: 40px;
-                width: 40px;
+                height: 35px;
+                width: 35px;
                 right: .25rem;
                 padding: .5rem;
                 top: .75rem;
@@ -581,10 +567,10 @@
                 //     }
                 // }
 
-                .head-nav {
-                    // display: block;
+                // .head-nav {
+                //     display: block;
                    
-                }
+                // }
  
                 .burger {
                     display: block;
