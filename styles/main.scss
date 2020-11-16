@@ -1,0 +1,678 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//imported styles
+
+@import './styleguide';
+
+
+//styling
+
+
+
+
+.grid-container {
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    height: 96vh;
+    width: 96vw;
+    margin: 2vh 2vw;
+    grid-template-columns: .5fr 2fr 1fr  1.5fr .5fr;
+    grid-template-rows: .45fr .5fr 2fr 1fr 1fr 1fr .25fr;
+    column-gap: 1.5%;
+    row-gap: 1.5%;
+    grid-template-areas: 
+    'logo  showcase title title shop'
+    '.  showcase  title title footerSW'
+    'navi  showcase  title title footerWS'
+    'navi showcase  title title footer'
+    '.  showcase search-section search-section  footer'
+    'locat showcase video-block video-block footer'
+    '. showcase filler filler .';
+    transition: all .5s ease-in-out;
+
+    
+
+    
+        #showcase{
+            grid-area: showcase;
+            background-image: url('../assets/images/modern-building-3034343.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            background-clip: border-box;
+            position: relative;
+            border: none;
+            border-radius: $rad-large;
+        }
+            
+
+
+        .account-shop{
+            grid-area: shop;
+            background-color: $clr-whiteOff;
+            border-radius: $rad-large;
+            width: 100%;
+            position: relative;
+            left: 0;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+
+                img{
+                    width: 2.2rem;
+                    height: 2rem;
+                    
+                    position: relative;
+                    margin: 0rem 1.2rem;
+                    padding: 8px;
+                    border: none;
+                    background-color: white;
+                    border-radius: $rad-large;
+                    transform: scale(1);
+                    transition: all .25s ease-in-out;
+                    
+                    &{
+                        &:hover {
+                            background-color: $clr-pink;
+                            transform: scale(1.2);
+                        }
+                    }
+
+                    &::before {
+                       content: '';
+                            position: absolute;
+                            // display: block;
+                            top: 0;
+                            left: 0;
+                            height: 50px;
+                            width: 50px;
+                            background-color: red;
+                    }
+                }
+        }
+
+        .logo{
+            grid-area: logo;
+            position: relative;
+            left: 5%;
+            top: 0;
+            font-size: 2.5rem;
+            // font-size: 200%;
+            // margin: 8%;
+            text-transform: uppercase;
+            // font-family: 'bebas';
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            color: $clr-blck;
+            letter-spacing: $txt-space;
+            // letter-spacing: .5rem;
+            transition: color .25s ease-in-out;
+
+            &::before {
+                content: '';
+                left: 0;
+                z-index: -4;
+                position: relative;
+                bottom: 1rem;
+                height: 20px;
+                width: 80%;
+                // transform: scaleX(0);
+                transform: translateX(-100px);
+                opacity: 0;
+                background-color: $clr-whiteOff;
+                transition: all .35s ease-in-out;
+            }
+
+            &:hover::before{
+    
+                content: '';
+                 position: absolute;
+                transform: translateX(0);
+                opacity: 1;
+            
+            }
+
+            &:hover {
+                color: $clr-terra;
+            }
+
+        }
+
+        .dots-whitespace {
+            display: none;
+        }
+        .head-nav {
+            position: absolute;
+            // top: 3rem;
+            // left: 1rem;
+            grid-area: navi;   
+            display: block;
+            height: 100%;
+            width: 100%;
+            font-size: 1rem;
+
+                ul {
+                    
+                     line-height: 5rem;
+                     text-align: left;
+                     position: relative;
+                     top: 10rem;
+
+                    }
+                    a {
+                        color: $clr-darkTeal; 
+                        display: block;
+                        letter-spacing: $txt-space;
+                        transition: all .5 ease-in-out;
+
+                        &:hover {
+                            color: $clr-blck;
+                        transition: all .5 ease-in-out;
+                            text-decoration: underline;
+                        }
+
+                     }
+
+
+            #newLoco{
+                grid-area: locat;
+                background-color: black;
+                z-index: 3;
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                display: block;
+            }
+            
+        }
+
+        .burger {
+                // @include centerMe;
+                display: none;
+                position: absolute;
+                top: 58px;
+                left: 0px;
+            div {
+                width: 40px;
+                height: 2px;
+                background-color: $clr-darkTeal;
+                margin-bottom: 8px;
+            }
+
+            div:nth-child(2){
+                background-color: $clr-blck;
+
+            }
+        
+        }
+
+        .title{
+            grid-area: title;
+            background-color:$clr-terra;
+            position: relative;
+            // @include centerMe;
+            height: 100%;
+            width: 100%;
+            border-radius: $rad-large;
+            transition: background-color .5s ease-in-out;
+
+                    &:hover {
+                    background-color:$clr-pink;
+                        p, h2 {color: $clr-blck;}
+
+                    }
+
+                    
+                   
+
+                    h2{
+                        @include centerMe;
+                        bottom: -8rem;
+                        font-size: 2rem;
+                        font-family: 'Oswald', sans-serif;
+                        font-weight: lighter;
+                        color: $clr-whiteOff;
+                        transition: color .5s ease-in-out;
+
+
+
+                        &::before {
+                            content: '';
+                            // display: inline;
+                            left: -4rem;
+                            position: absolute;
+                            top: 1.5rem;
+                            height: 3px;
+                            width: 35px;
+                            background-color: $clr-whiteOff;
+                        }
+
+                        &::after {
+                            content: '';
+                            // display: inline;
+                            right: -4rem;
+                            position: absolute;
+                            top: 1.5rem;
+                            height: 3px;
+                            width: 35px;
+                            background-color: $clr-whiteOff;
+                            
+                        }
+
+                    }
+
+                    h1 {
+                        @include centerMe;
+                        bottom: -13rem;
+                        // font-size: 5.5rem;
+                        font-size: 550%;
+                        font-family: 'serif';
+                        color: $clr-blck;
+
+
+                    }
+
+                    p{
+                     @include centerMe;
+                     padding: 0 .5rem;
+                        padding-top: 2rem;
+
+                        bottom: 12rem;
+                        text-align: center;
+                        width: 100%;
+                        color: $clr-whiteOff;
+                        letter-spacing: $txt-space;
+                        transition: color .5s ease-in-out;
+
+                        
+                    }
+
+        }
+
+        .video-section  {
+            grid-area: video-block;
+            background-color: none;
+            border-radius: $rad-large;
+            // position: relative;
+
+            video {
+            border-radius: $rad-large;
+            // position: absolute;
+
+            }
+        }
+
+        .search {
+            grid-area: search-section;
+            @include centerMe;
+                position: relative;
+
+
+
+            .search-bar {
+                position: absolute;
+                font-size: 1rem;
+                width: 350px;
+                width: 100%;
+               top: .5rem;
+                height: 15px;
+                // padding: 10px 0;
+                padding: 1.5rem .5rem;
+                padding-left: 2rem;
+                border-radius: 300px;
+                border: none;
+                background-color: $clr-whiteOff;
+                color: $clr-blck;
+               
+                transition: background-color .25s ease-in-out;
+
+                &:focus {
+                    // background-color: $clr-pink;
+                    
+
+                    background-color: $clr-blck;
+                    color: $clr-whiteOff;
+                }
+                
+            }
+
+            .search-btn {
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                right: .25rem;
+                padding: .5rem;
+                top: .75rem;
+                border: none;
+                border-radius: 25px;
+                align-items: center;
+                justify-content: center; /*JUSTIFY LIKE YOU DO FOR TEXT*/
+                background-color: $clr-terra;
+                color:  $clr-whiteOff;
+                cursor: pointer;
+                // text-transform: uppercase;
+                transform: scale(1);
+                transition: all .3s ease-out;
+
+                @include buttonClick;
+
+                    &:hover{
+                        transform: scale(1.05);
+                        font-weight: bolder;
+                    }
+            }
+        }
+        .footerWhiteSpace{
+            grid-area: footerWS;
+            width: 5rem;
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+            align-items: center;
+            justify-content: center;
+            
+                img{
+                   
+                 opacity: .3;
+                }
+        }
+
+        footer {
+            grid-area: footer;
+            position: relative;
+            // background-color: brown;
+            border-radius: $rad-large;
+     
+
+            
+            .foot-nav {
+
+                transform: rotate(-90deg);
+
+            ul {
+                position: absolute;
+                width: 320px;
+            
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                
+                // background-color: #333;
+                bottom: -1rem;
+                right: 100%;
+              }
+              
+              li {
+                float: left;
+                // margin-right: 20px; 
+                //after rotation this does the wrong way!! use li a padding instead
+              }
+              
+              li a {
+                display: block;
+                color: $clr-darkTeal;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+
+                    &:hover {
+                        color: $clr-blck;
+                        transition: all .5 ease-in-out;
+                        text-decoration: underline;
+                    }
+              }
+            }
+         }
+
+
+            .down-arrow {
+            grid-area: footer;
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            margin: 30px;
+
+                
+                    img {
+                        position: absolute;
+                        transform: rotate(90deg);
+                        bottom: 10px;
+                        left: 35%;
+                        width: 15%;
+                      
+
+
+                        &:hover {
+                            background-color: $clr-darkTeal;
+                            border-radius: $rad-large;
+                        }
+                       
+                    }
+
+
+                    
+            }
+        }
+
+        .filler{
+            grid-area: filler;
+            background: $clr-whiteOff;
+            border-radius:  $rad-large;
+        }
+
+
+
+
+// @media screen and (max-width: 595px) {
+@media screen and (max-width: 656px) {
+
+
+
+
+    body{
+        background-color: rgb(235, 235, 235);
+         ////
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        //the above stops the content skewing to one side!! remember it
+        overflow-x: hidden;
+
+    }
+
+
+
+
+    .grid-container {
+
+        // @include centerMe;
+        position: relative;
+        display: grid;
+        // height: 96vh;
+        height: 100%;
+        width: 96w;
+        margin: 2vh 2vw;
+        grid-template-rows: .35fr 1rem 5fr 3.5fr  1.5fr .5fr 2fr 2fr .45fr;
+        grid-template-columns: .75fr 1fr .75fr;
+        column-gap: 1.5%;
+        row-gap: .5%;
+        grid-template-areas: 
+       ' navi  logo  shop'
+       '. . .'
+        'showcase  showcase  showcase '
+        'title   title title '
+        'title   title title '
+        'search-section  search-section whitespace '
+        'video-block  video-block video-block '
+        ' filler locat locat '
+        'footer footer footer';
+        transition: all .5s ease-in-out;
+
+
+
+                .logo{
+                    grid-area: logo;
+                    position: absolute;
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    // top:-.55rem;
+                    left: 50%;
+                    transform: translate(-50%,0);
+                    font-size: 2.5rem;
+                    text-transform: uppercase;
+                    // font-family: 'bebas';
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: bold;
+                    color: $clr-blck;
+                    // letter-spacing: $txt-space;
+                    letter-spacing: .5rem;
+                    transition: color .25s ease-in-out;
+
+                    &::before {
+                        content: '';
+                        left: 0;
+                        z-index: -4;
+                        position: relative;
+                        bottom: 1rem;
+                        height: 20px;
+                        width: 80%;
+                        // transform: scaleX(0);
+                        transform: translateX(-50px);
+                        opacity: 0;
+                        background-color: $clr-blck;
+                        transition: all .35s ease-in-out;
+                    }
+
+                    &:hover::before{
+            
+                        content: '';
+                        position: absolute;
+                        transform: translateX(0);
+                        opacity: .5;
+                    
+                    }
+                }
+
+                // .headerwave{
+                //     grid-area: headerwave;
+                //     display: flex;
+                //     // position: relative;
+                //     // top: 5px;
+                //     img{
+                //         opacity: .5;
+                //     }
+                // }
+
+                .head-nav {
+                    // display: block;
+                   
+                }
+ 
+                .burger {
+                    display: block;
+                    position: relative;
+                    top: 50%;
+                    left: 25%;
+                    transform: translate(0,-50%);
+                }
+                    .search {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                .account-shop{
+                    grid-area: shop;
+                    background-color: $clr-pink;
+                    border-radius: $rad-large;
+                    width: 80%;
+                    position: relative;
+                    right: 0;
+                }
+
+
+                .dots-whitespace {
+                    grid-area: whitespace;
+                    width: 70%;
+                    display: flex;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                footer {
+                    grid-area: footer;
+                    // position: relative;
+                    // background-color: brown;
+                    border-radius: $rad-large;
+            
+
+                    
+                    .foot-nav {
+
+                        // transform: rotate(-90deg);
+
+                    ul {
+                        // position: absolute;
+                        // width: 320px;
+                        // display: inline;
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+                        
+                        // background-color: #333;
+                        // bottom: -1rem;
+                        // right: 100%;
+                    }
+                    
+                    li {
+                        float: left;
+                        // margin-right: 20px; 
+                        //after rotation this does the wrong way!! use li a padding instead
+                    }
+                    
+                    li a {
+                        display: block;
+                        color: $clr-darkTeal;
+                        text-align: center;
+                        padding: 14px 16px;
+                        text-decoration: none;
+
+                            &:hover {
+                                color: $clr-blck;
+                                transition: all .5 ease-in-out;
+                                text-decoration: underline;
+                            }
+                    }
+                    }
+                }
+
+
+                .footerWhiteSpace{
+                    display: none;
+                }
+    }
+}
+
+
+
+
+
+
